@@ -80,7 +80,7 @@ The role of the decoder is to map the low resolution encoder feature maps to ful
 
 Such network architecture definitely can be used for any object detection but we need to train it on correctly prepared data (labeled images with the correct ground truth).
 
-Current network result could be further approved by adding more data for specific cases and using data augmentation like flipping and/or shifting.
+Current network result could be further improved by adding more data for specific cases and using data augmentation like flipping and/or shifting.
 
 #### 7. Future Enhancement
 
