@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,7 +11773,8 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11791,7 +11794,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11831,7 +11835,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11840,7 +11845,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11874,7 +11880,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11898,7 +11905,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11912,7 +11920,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11939,7 +11948,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11975,7 +11985,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12010,9 +12021,8 @@ Alternatively, you can collect additional data of your own to improve your model
     <span class="c1"># TODO: Add the same number of Decoder Blocks as the number of Encoder Blocks</span>
     <span class="n">dec5</span> <span class="o">=</span> <span class="n">decoder_block</span><span class="p">(</span><span class="n">conv4</span><span class="p">,</span> <span class="n">enc2</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
     <span class="n">dec6</span> <span class="o">=</span> <span class="n">decoder_block</span><span class="p">(</span><span class="n">dec5</span><span class="p">,</span> <span class="n">enc1</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
-    <span class="n">dec7</span> <span class="o">=</span> <span class="n">decoder_block</span><span class="p">(</span><span class="n">dec6</span><span class="p">,</span> <span class="n">conv1</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
     
-    <span class="n">x</span> <span class="o">=</span> <span class="n">bilinear_upsample</span><span class="p">(</span><span class="n">dec7</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">bilinear_upsample</span><span class="p">(</span><span class="n">dec6</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">separable_conv2d_batchnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">separable_conv2d_batchnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
     
@@ -12029,7 +12039,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12062,7 +12073,8 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12140,9 +12152,7 @@ Alternatively, you can collect additional data of your own to improve your model
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/50
@@ -12151,9 +12161,7 @@ Alternatively, you can collect additional data of your own to improve your model
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -12308,9 +12316,7 @@ w8zMUnFgmJlZKg4MMzNLxYFhZmapODDMzCyV/w/uUQcZxNdO/gAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 66s - loss: 0.2709 - val_loss: 0.1127
@@ -12320,9 +12326,7 @@ Epoch 2/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -12552,9 +12556,7 @@ RIEhIiI++X9BEhecUPkdhgAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0468 - val_loss: 0.1202
@@ -12564,9 +12566,7 @@ Epoch 3/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -12769,9 +12769,7 @@ GAbCOsKrhxKEx4/N7IbwPs7o4GErgN+YWQnBEc7l3fy0RJKmq9WKdJGZ7XD3PumuQ6SnaEhKREQi
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0382 - val_loss: 0.1038
@@ -12781,9 +12779,7 @@ Epoch 4/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -13019,9 +13015,7 @@ CgwREYmIAkNERCLy/wGGcjrU+JRlmwAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0361 - val_loss: 0.0507
@@ -13031,9 +13025,7 @@ Epoch 5/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -13261,9 +13253,7 @@ AABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0313 - val_loss: 0.0396
@@ -13273,9 +13263,7 @@ Epoch 6/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -13491,9 +13479,7 @@ AElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0286 - val_loss: 0.0417
@@ -13503,9 +13489,7 @@ Epoch 7/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -13734,9 +13718,7 @@ IiJJUWCIiEhSFBgiIpIUBYaIiCTl/wMwnWpn5XYXVQAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0296 - val_loss: 0.0411
@@ -13746,9 +13728,7 @@ Epoch 8/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -13980,9 +13960,7 @@ Y4xJigWGMcaYpFhgGGOMScr/A057mw8c1m6nAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0278 - val_loss: 0.0481
@@ -13992,9 +13970,7 @@ Epoch 9/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -14229,9 +14205,7 @@ AAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0265 - val_loss: 0.0422
@@ -14241,9 +14215,7 @@ Epoch 10/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -14468,9 +14440,7 @@ EZGMKDBERCQjCgwREcmIAkNERDKiwBARkYz8fxZAlGczeWG0AAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0259 - val_loss: 0.0325
@@ -14480,9 +14450,7 @@ Epoch 11/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -14711,9 +14679,7 @@ FBgiIpIRBYaIiGREgSEiIhlRYIiISEb+PzoHxNKe2PChAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0233 - val_loss: 0.0368
@@ -14723,9 +14689,7 @@ Epoch 12/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -14971,9 +14935,7 @@ qPx/SQSRk6/1MJwAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0258 - val_loss: 0.1704
@@ -14983,9 +14945,7 @@ Epoch 13/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -15245,9 +15205,7 @@ WMUhhGFBPgAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0243 - val_loss: 0.0429
@@ -15257,9 +15215,7 @@ Epoch 14/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -15526,9 +15482,7 @@ TkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0235 - val_loss: 0.0713
@@ -15538,9 +15492,7 @@ Epoch 15/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -15808,9 +15760,7 @@ YmIJwxhjTEz+PxRgKjiM6WjYAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0236 - val_loss: 0.0419
@@ -15820,9 +15770,7 @@ Epoch 16/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -16094,9 +16042,7 @@ hFjCMMYYkxBLGMYYYxJiCcMYY0xCLGEYY4xJyP8HSXNGeGV3asMAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0221 - val_loss: 0.0571
@@ -16106,9 +16052,7 @@ Epoch 17/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -16385,9 +16329,7 @@ xRKGMcaYuFjCMMYYExdLGMYYY+JiCcMYY0xc/j+jWLYHRgbGKwAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0201 - val_loss: 0.0361
@@ -16397,9 +16339,7 @@ Epoch 18/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -16677,9 +16617,7 @@ YII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0215 - val_loss: 0.0345
@@ -16689,9 +16627,7 @@ Epoch 19/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -16969,9 +16905,7 @@ UnH5/24FVBZVLukeAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0197 - val_loss: 0.0375
@@ -16981,9 +16915,7 @@ Epoch 20/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -17258,9 +17190,7 @@ pZSKy/8De1ZbiP6JIUEAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0194 - val_loss: 0.0305
@@ -17270,9 +17200,7 @@ Epoch 21/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -17549,9 +17477,7 @@ jDHGJMUChjHGmKRYwDDGGJMUCxjGGGOSYgHDGGNMUv4/naZ8PsjPRb0AAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0197 - val_loss: 0.0282
@@ -17561,9 +17487,7 @@ Epoch 22/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -17832,9 +17756,7 @@ Y4yJy/8HuW54zvIEKW0AAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0170 - val_loss: 0.0333
@@ -17844,9 +17766,7 @@ Epoch 23/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -18115,9 +18035,7 @@ mIT8f+OFYkL9yVVAAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0178 - val_loss: 0.0362
@@ -18127,9 +18045,7 @@ Epoch 24/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -18402,9 +18318,7 @@ AABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0162 - val_loss: 0.0348
@@ -18414,9 +18328,7 @@ Epoch 25/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -18687,9 +18599,7 @@ xMQChjHGmJhYwDDGGBOT/w9YN/M01aYb+wAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0198 - val_loss: 0.0334
@@ -18699,9 +18609,7 @@ Epoch 26/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -18974,9 +18882,7 @@ RK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0184 - val_loss: 0.0288
@@ -18986,9 +18892,7 @@ Epoch 27/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -19262,9 +19166,7 @@ E5X/DxBMVzzRdBnuAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0167 - val_loss: 0.0576
@@ -19274,9 +19176,7 @@ Epoch 28/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -19553,9 +19453,7 @@ YYwxJiYWMIwxxsTk/wOoo2kqaoBnOAAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0162 - val_loss: 0.0310
@@ -19565,9 +19463,7 @@ Epoch 29/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -19838,9 +19734,7 @@ AABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0163 - val_loss: 0.0297
@@ -19850,9 +19744,7 @@ Epoch 30/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -20133,9 +20025,7 @@ JQAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0167 - val_loss: 0.0317
@@ -20145,9 +20035,7 @@ Epoch 31/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -20426,9 +20314,7 @@ chgzUKxKyhhjTEwswzDGGBMTyzCMMcbExAKGMcaYmFjAMMYYExMLGMYYY2JiAcMYY0xM/j94Q+ET
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0180 - val_loss: 0.0418
@@ -20438,9 +20324,7 @@ Epoch 32/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -20724,9 +20608,7 @@ AElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0172 - val_loss: 0.0310
@@ -20736,9 +20618,7 @@ Epoch 33/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -21026,9 +20906,7 @@ B34jIj/wrnFBFx+bATwlIn5cDefb/fxnGdNjtlqtMb0kIkFVDcS7HMYMFGuSMsYYExWrYRhjjImK
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0240 - val_loss: 0.0874
@@ -21038,9 +20916,7 @@ Epoch 34/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -21337,9 +21213,7 @@ QmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0170 - val_loss: 0.0268
@@ -21349,9 +21223,7 @@ Epoch 35/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -21646,9 +21518,7 @@ jDHGRMQShjHGmIj8fyWBPhOkQzfsAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0140 - val_loss: 0.0242
@@ -21658,9 +21528,7 @@ Epoch 36/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -21956,9 +21824,7 @@ IpYwjDHGRMQShjHGmIhYwjDGGBMRSxjGGGMi8v8BYXJiTQd8YxIAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0156 - val_loss: 0.0268
@@ -21968,9 +21834,7 @@ Epoch 37/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -22268,9 +22132,7 @@ GGOMiYolDGOMMVGxhGGMMSYqljCMMcZE5f8B+wVu/Zc1SCgAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0146 - val_loss: 0.0339
@@ -22280,9 +22142,7 @@ Epoch 38/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -22582,9 +22442,7 @@ Y4yJiyUMY4wxcfn/AUjMgP9uftENAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0139 - val_loss: 0.0169
@@ -22594,9 +22452,7 @@ Epoch 39/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -22895,9 +22751,7 @@ RU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0142 - val_loss: 0.0320
@@ -22907,9 +22761,7 @@ Epoch 40/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -23215,9 +23067,7 @@ D0MppVRYNGAopZQKiwYMpZRSYdGAoZRSKiwaMJRSSoXl/wOaLZvNaeHGygAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0133 - val_loss: 0.0264
@@ -23227,9 +23077,7 @@ Epoch 41/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -23531,9 +23379,7 @@ VHb56aEAAAANSURBVCxhGGOMicr/B3rbfHElazGkAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0135 - val_loss: 0.0292
@@ -23543,9 +23389,7 @@ Epoch 42/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -23844,9 +23688,7 @@ pSKiAUMppVRENGAopZSKyP8HtsMCbfQSDgcAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0140 - val_loss: 0.0347
@@ -23856,9 +23698,7 @@ Epoch 43/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -24156,9 +23996,7 @@ lFIqJhowlFJKxUQDhlJKqZj8f/qdEitnMtSDAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0149 - val_loss: 0.0274
@@ -24168,9 +24006,7 @@ Epoch 44/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -24472,9 +24308,7 @@ gg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0141 - val_loss: 0.0324
@@ -24484,9 +24318,7 @@ Epoch 45/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -24786,9 +24618,7 @@ ATgVIbzI3EIPAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0155 - val_loss: 0.0370
@@ -24798,9 +24628,7 @@ Epoch 46/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -25100,9 +24928,7 @@ dRZNSSmllIqK1jCUUkpFRWsYSimloqIBQymlVFQ0YCillIqKBgyllFJR0YChlFIqKv8fR4dddwor
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0134 - val_loss: 0.0267
@@ -25112,9 +24938,7 @@ Epoch 47/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -25415,9 +25239,7 @@ MxLxwYzpirTeLoAxhztVXSki3wWeFxEf0ATcCNTiFhn6Lm5thIu8U64EFnoBYSNwtbf9cuAPInKb
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0129 - val_loss: 0.0279
@@ -25427,9 +25249,7 @@ Epoch 48/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -25734,9 +25554,7 @@ qGjAUEopFRUNGEoppaKiAUMppVRU/j/bMawqEees2QAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0181 - val_loss: 0.0478
@@ -25746,9 +25564,7 @@ Epoch 49/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -26055,9 +25871,7 @@ GMYYY2JiAcMYY0xMLGAYY4yJyf8HLewoK0SF6JoAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 59s - loss: 0.0168 - val_loss: 0.0281
@@ -26067,9 +25881,7 @@ Epoch 50/50
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -26377,9 +26189,7 @@ A4ZSSqmIaMBQSikVkf8PLwYnwZnAhcYAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>100/100 [==============================] - 60s - loss: 0.0155 - val_loss: 0.0324
@@ -26388,9 +26198,7 @@ A4ZSSqmIaMBQSikVkf8PLwYnwZnAhcYAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[9]:</div>
-
 
 
 
@@ -26419,7 +26227,8 @@ A4ZSSqmIaMBQSikVkf8PLwYnwZnAhcYAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -26450,7 +26259,8 @@ A4ZSSqmIaMBQSikVkf8PLwYnwZnAhcYAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -26482,7 +26292,8 @@ The <code>run_num</code> parameter is used to define or group all the data for a
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -26514,9 +26325,7 @@ Run each of the following cells to visualize some sample images from the predict
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -27839,9 +27648,7 @@ Ff8Pi1XpewsBX+oAAAAASUVORK5CYII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -29046,9 +28853,7 @@ QmCC
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -30267,9 +30072,7 @@ FJRf8QAAAABJRU5ErkJggg==
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -31365,9 +31168,7 @@ RU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -32632,9 +32433,7 @@ kiVJkqQJm2RJkiRpwiZZkiRJmrBJliRJkiZskiVJkqSJvwHXzSJpYpOzVwAAAABJRU5ErkJggg==
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -33896,9 +33695,7 @@ dhzHcRzHcZzX8CLZcRzHcRzHcV7Di2THcRzHcRzHeY3/D2H6IAFSiCrlAAAAAElFTkSuQmCC
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -35025,9 +34822,7 @@ hmHcOyxINgzDMAzDMIwNFiQbhmEYhmEYxgYLkg3DMAzDMAxjgwXJhmEYhmEYhrHBgmTDMAzDMAzD
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -36146,9 +35941,7 @@ YII=
 </div>
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -37224,7 +37017,8 @@ RK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -37251,9 +37045,7 @@ RK5CYII=
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>number of validation samples intersection over the union evaulated on 542
@@ -37287,9 +37079,7 @@ number true positives: 539, number false positives: 0, number false negatives: 0
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>number of validation samples intersection over the union evaulated on 270
@@ -37323,9 +37113,7 @@ number true positives: 0, number false positives: 48, number false negatives: 0
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>number of validation samples intersection over the union evaulated on 322
@@ -37364,9 +37152,7 @@ number true positives: 147, number false positives: 3, number false negatives: 1
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0.7699214365881033
@@ -37397,9 +37183,7 @@ number true positives: 147, number false positives: 3, number false negatives: 1
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0.593013531304
@@ -37430,9 +37214,7 @@ number true positives: 147, number false positives: 3, number false negatives: 1
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0.456573829938
