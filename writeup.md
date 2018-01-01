@@ -52,7 +52,7 @@ Learning rate used `0.005` which is smaller than usually used `0.01` because we 
 
 Steps per epoch was increased to `100` in order to cover all images in training set. Though it's slightly bigger than needed but it wasn't a problem for network to learn correctly.
 
-Loss and Validation loss graph are below. Loss decrease is almost flattened but still is lowering a bit in 5-10 epochs.
+Loss and Validation loss graph are below.
 
 ![Train Validation Loss][train_val_loss]
 
